@@ -12,17 +12,16 @@ EXPOSE 8000
 CMD python3 -m http.server 8000
 ````
 
-Criado e configurado o Dockerfile, basta executar os comandos:
+Criado e configurado o Dockerfile, basta executar o comando abaixo para criar a imagem via Dockerfile.:
 ````
 docker build -f Dockerfile . -t simplehttp
 ````
-Este para criar a imagem via Dockerfile.
+E este comando para criar e rodar o container a partir da imagem, execuntando como servidor (ou seja, em background "-d").
 ````
 docker run -d -p 8000:80 -it --rm --name simplehttp simplehttp
 ````
-E este para criar e rodar o container a partir da imagem, execuntando como servidor (ou seja, em background "-d").
 
-Portanto, criamos então um servidor http via comando python com porta externa 8000 para a porta interna 80, esta útlima a porta referente ao serviço TCP HTTP.
+Portanto, criamos então um servidor HTTP por comando python com porta externa 8000 para a porta interna 80, esta útlima a porta referente ao serviço TCP HTTP.
 
 ## Teste
 Para verfificar se está mesmo rodando, pode ser utilizado o comando docker ps, que mostrará os containers em execução:
